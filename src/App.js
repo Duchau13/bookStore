@@ -14,6 +14,8 @@ import OrderDetail from './components/ListOrders/OderDetail';
 import ChangePassword from './components/Changepw/ChangePassword';
 import Payment from './components/Payment/Payment';
 import Discount from './components/Discount/Discount';
+import ProductRecommen from './components/productRecommen/productRecommen';
+import SuggestItems from './components/SuggestItems/SuggestItems';
 
 function App() {
 
@@ -33,6 +35,8 @@ function App() {
           <Route path="/change-password" element={<ChangePassword/>} />
           <Route path="/payment" element={<Payment/>} />
           <Route path="/discount" element={<Discount/>} />
+          <Route path="/quiz" element={<ProductRecommen/>} />
+          <Route path="/suggest" element={<SuggestItems/>} />
         </Routes>
       </Layout>
     </div>

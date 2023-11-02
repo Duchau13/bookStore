@@ -5,7 +5,7 @@ import { NavLink,useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { Fragment } from "react";
 import api from '../../../../apiRequest/axios'
-import AuthContext from "../../../../apiRequest/Authprovider";
+// import AuthContext from "../../../../apiRequest/Authprovider";
 import classes from "./Authentication.module.css";
 import LabledInput from "../../Input/LabledInput";
 import Button from "../../Button/index";
@@ -33,7 +33,7 @@ const validateLogin = (values) => {
 };
 
 const LoginForm = (props) => {
-  const {auth,setAuth} = useContext(AuthContext);
+  // const {auth,setAuth} = useContext(AuthContext);
   const navigate = useNavigate();
   const [success,setSuccess] = useState(false);
   const [errors,setError] = useState("");
@@ -64,7 +64,7 @@ const LoginForm = (props) => {
         const email = res.data.data.email
         const phone = res.data.data.phone
         const address = res.data.data.address
-        setAuth({name,id_customer,phone,address,email})
+        // setAuth({name,id_customer,phone,address,email})
         localStorage.setItem("role", res.data.data.role);
     }
     catch(err){

@@ -1,0 +1,103 @@
+.container{
+    margin-top: 150px;
+}
+.container > h1 {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size:20px;
+    font-weight: 500;
+    margin-top: 50px;
+}
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+
+  }
+  
+  .card-container > div {
+    width: 15%;
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card.active {
+    /* background-color: #e0e0e0; */
+    border: 3px solid green;
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .card-description {
+    padding: 10px;
+  }
+  
+  .card-description h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .card-description p {
+    font-size: 18px;
+    color: #555;
+  }
+
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .back-button {
+    background-color: #ff6666; /* Change the background color as desired */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 20px;
+  }
+  
+  .back-button:disabled {
+    background-color: #ccc; /* Change the disabled state background color */
+    cursor: not-allowed;
+  }
+  
+  .next-button {
+    background-color: #66ff66; /* Change the background color as desired */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 50px;
+    margin-top: 20px;
+  }
+  .next-button:disabled {
+    background-color: #ccc; /* Change the disabled state background color */
+    cursor: not-allowed;
+  }
+
+  .submit-button{
+    background-color: #66ff66; /* Change the background color as desired */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 50px;
+    margin-top: 20px;
+  }

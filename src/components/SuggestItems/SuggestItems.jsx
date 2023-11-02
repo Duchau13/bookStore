@@ -1,5 +1,5 @@
 import React from "react";
-import classes from './ListItem.module.css'
+import classes from './SuggestItems.module.css'
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import RatingStars from "../UI/RatingStars/Index";
 import Footer from "../UI/Footer/index";
@@ -9,10 +9,9 @@ import { useNavigate } from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import ReactPaginate from "react-paginate";
-import Cookies from "js-cookie";
 import AuthContext from "../../apiRequest/Authprovider";
 
-const ListItem = () =>{
+const SuggestItems = () =>{
     const [listItems,setListItems] = useState([])
     const [types, setTypes] = useState([])
     const [activeTypes, setActiveTypes] = useState(1)
@@ -20,128 +19,85 @@ const ListItem = () =>{
     const token = localStorage.getItem('token')
     const navigate = useNavigate();
     const quantity = {quantity: 1}
-    // useContext
-    const {auth,setAuth} = useContext(AuthContext);
-    //api lay loại hàng
-    
+    const {auth,setAuth} = useContext(AuthContext)
+    console.log(auth);
 
-    const getData = async() => {
-        const res = await api.get("/item")
-        return res
-    }
-    const getType = async () => {
-        const res = await api.get("/type")
-        return res
-    }
     useEffect(() => {
-      
-        getData().then((res) => {
-          setListItems(res.data.data)
-          const totalItems = res.data.total
-          setPageCount(Math.ceil(totalItems/12))
-          
-        })
-        getData().catch((err) => {
-          console.log(err)
-        })
-        getType().then((res) => {
-            setTypes(res.data.data)
-          })
-          getType().catch((err) => {
-            console.log(err)
-          })
+        let retString = localStorage.getItem("key")
+        let retArray = JSON.parse(retString)
+        setListItems(retArray)
     },[])
     
-    const handleTypes = async (id_type) => {
-        const currentData = await fetchDataType(id_type);
-        //console.log(data.selected + 1)
-        console.log(currentData);
-        setListItems(currentData);
-        setActiveTypes(id_type);
-    }
-    //api lấy danh sách item
-    const fetchData = async (currentPage) => {
-        const id_type = types
-        const res = await api.get(`/item?page=${currentPage}&id_type=${id_type}`)
-        const data = res.data.data;
-        return data;
-        
-    }
     
-    const fetchDataType = async (id_type) => {
-        const res = await api.get(`/item?id_type=${id_type}`)
-        const data = res.data.data;
-        return data;
+    //api lấy danh sách item
+    // const fetchData = async (currentPage) => {
+    //     const id_type = types
+    //     const res = await api.get(`/item?page=${currentPage}&id_type=${id_type}`)
+    //     const data = res.data.data;
+    //     return data;
         
-    }
-    const handlePgaeclick = async (data) => {
-      let currentPage = data.selected +1;
-      const currentData = await fetchData(currentPage);
-      console.log(data.selected + 1)
-      setListItems(currentData);
+    // }
+    
+    // const fetchDataType = async (id_type) => {
+    //     const res = await api.get(`/item?id_type=${id_type}`)
+    //     const data = res.data.data;
+    //     return data;
+        
+    // }
+    // const handlePgaeclick = async (data) => {
+    //   let currentPage = data.selected +1;
+    //   const currentData = await fetchData(currentPage);
+    //   console.log(data.selected + 1)
+    //   setListItems(currentData);
       
-    }
-    console.log(Cookies.get('accessToken'));
-    const formatter = new Intl.NumberFormat("it-IT", {
-        style: "currency",
-        currency: "VND",
-    });
-    console.log(listItems)
-    const handleAddToCart = async (id_item) => {
-        api.post(`cart/add/${id_item}`,quantity,)
-        .then(function (res) {
-            console.log(res)
-            toast.success('Thêm hàng thành công', {
-                position: "top-right",
-                autoClose: 1500,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                }); 
-        })
-        .catch(function (res) {
-            console.log(res)
-            toast.error('Thêm hàng thất bại', {
-                position: "top-right",
-                autoClose: 1500,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                });
-        });
-    }
+    // }
+    // console.log(Cookies.get('accessToken'));
+    // const formatter = new Intl.NumberFormat("it-IT", {
+    //     style: "currency",
+    //     currency: "VND",
+    // });
+    // console.log(listItems)
+    // const handleAddToCart = async (id_item) => {
+    //     api.post(`cart/add/${id_item}`,quantity,)
+    //     .then(function (res) {
+    //         console.log(res)
+    //         toast.success('Thêm hàng thành công', {
+    //             position: "top-right",
+    //             autoClose: 1500,
+    //             hideProgressBar: true,
+    //             closeOnClick: true,
+    //             pauseOnHover: true,
+    //             draggable: true,
+    //             progress: undefined,
+    //             theme: "light",
+    //             }); 
+    //     })
+    //     .catch(function (res) {
+    //         console.log(res)
+    //         toast.error('Thêm hàng thất bại', {
+    //             position: "top-right",
+    //             autoClose: 1500,
+    //             hideProgressBar: true,
+    //             closeOnClick: true,
+    //             pauseOnHover: true,
+    //             draggable: true,
+    //             progress: undefined,
+    //             theme: "light",
+    //             });
+    //     });
+    // }
     return (
         <div>
-            <div className="container">
-                <h1 className={classes['head-content']}>Danh Sách Sản Phẩm</h1>
-                <div>
-                    <button className={classes["suggest-items"]} onClick={() => navigate(`/quiz/`)}>Gợi Ý Sản Phẩm</button>
-                </div>
+            <div className="container" style={{marginTop:"150px"}}>
+                <h1 className={classes['head-content']}>Danh Sách Sản Phẩm Gợi Ý Cho Bạn</h1>
+                
                 <div className={classes['list-type']}>
-                    {types.map((type) =>{
-                        return(
-                        <div 
-                        key={type.id_type}
-                        className={ activeTypes===type.id_type ? classes['active_type'] : classes['']}
-                         
-                        onClick={e => handleTypes(type.id_type)}
-                        >
-                            <span className={classes['name-type']}>{type.name}</span>
-                        </div>
-                    )})}
+                    
                 </div>
                 <div className="container">
                     <div className="row ">
                     {listItems.map((listItem) =>{
                         return(
-
-                        
                             <div 
                             key = {listItem.id_item}
                             className="col-lg-6 mb-5 "
@@ -153,22 +109,25 @@ const ListItem = () =>{
                                 <div className={classes['des-item']} >
                                 <div className={classes['item-detail']}>
                                     <span className={classes.namefood}
-                                          onClick={() => navigate(`/product-detail/${listItem.id_item}`)}  
+                                        //   onClick={() => navigate(`/product-detail/${listItem.id_item}`)}  
                                     >
                                         {listItem.name}
                                     </span>
-                                    <div className={classes.rating}>
+                                    {/* <div className={classes.rating}>
                                         <RatingStars rating={listItem.rating} />
-                                    </div>
+                                    </div> */}
+                                    <p>
+                                        {listItem.authorName}
+                                    </p>
                                     <p>
                                         {listItem.description}
                                     </p>
-                                    <span className={classes.price}>{formatter.format(listItem.price)}</span>
+                                    {/* <span className={classes.price}>{formatter.format(listItem.price)}</span> */}
                                 </div>
                                 </div>
                                 <div className={classes['des-icon']}>
                                 <div className={classes['icon-add']}
-                                    onClick={() => handleAddToCart(listItem.id_item)}
+                                    // onClick={() => handleAddToCart(listItem.id_item)}
                                 >
                                   <ShoppingBasketIcon></ShoppingBasketIcon>
                                 </div>
@@ -202,7 +161,7 @@ const ListItem = () =>{
                     pageCount={pageCount}
                     marginPagesDisplayed={3}
                     pageRangeDisplayed={3}
-                    onPageChange = {handlePgaeclick}
+                    // onPageChange = {handlePgaeclick}
                     containerClassName={'pagination justify-content-center'}
                     pageClassName={'page-item'}
                     pageLinkClassName={'page-link'}
@@ -220,4 +179,4 @@ const ListItem = () =>{
     )
 }
 
-export default ListItem;
+export default SuggestItems;
