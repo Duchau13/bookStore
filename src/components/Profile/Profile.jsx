@@ -21,7 +21,7 @@ const Profile = () => {
     
 
     useEffect(()=>{
-        if(!localStorage.getItem('role')){
+        if(!localStorage.getItem('setupTime')){
             navigate("/")
         }
     },[])
@@ -140,7 +140,7 @@ const Profile = () => {
                                     <h6>Tên</h6>
                                 </div>
                                 <div className={classes["value-info"]}>
-                                    <input name="name" value={auth.name} type="text" onChange={handleChange}/>
+                                    <input name="name" value={auth.fullname} type="text" onChange={handleChange}/>
                                 </div>
                             </div>
                             <hr></hr>

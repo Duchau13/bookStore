@@ -71,7 +71,7 @@ const ListOders = () => {
                     </p>
                 </div>
                 <div className={classes["price"]}>
-                    <p>Đơn Giá : {order.item_fee}</p>
+                    <p>Giá Sản Phẩm : {order.item_fee}</p>
                 </div>
                 <div className={classes["price"]}>
                     <p>Phí ship : {order.delivery_fee}</p>

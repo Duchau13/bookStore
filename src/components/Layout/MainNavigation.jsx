@@ -20,32 +20,19 @@ import MobileMenu from "./MobileMenu";
 import api from "../../apiRequest/axios"
 
 const MainNavigation = () => {
-  const token = localStorage.getItem('role')
   const navigate = useNavigate()
   const [authenticationIsOpen, setAuthenticationIsOpen] = useState(false);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
   const [listitems,setListitems] = useState([])
   const [click,setClick] = useState(1)
-  const role = localStorage.getItem('role')
-  if(role!=""){
-    console.log(true);
-  }else{
-    console.log(false);
-  }
-
+  
   const getData = async() => {
     const res = await api.get("/cart",{
-        headers: {
-            access_token: token
-        }
     })
     return res
   }
   useEffect(() => {
-    if(role!=""){
-      setAuthenticationIsOpen(false)
-    }
     getData().then((res) => {
       setListitems(res.data.itemList)
     })
@@ -90,7 +77,7 @@ const MainNavigation = () => {
   };
   
   const handleClickLoginSucces = () => {
-    if(localStorage.getItem('role')){ return(
+    if(localStorage.getItem('setupTime')){ return(
         navigate("/profile")
     )}
     else {return(
@@ -100,7 +87,7 @@ const MainNavigation = () => {
   };
 
   useEffect(() => {
-    if(localStorage.getItem('role')){ return(
+    if(localStorage.getItem('setupTime')){ return(
       setAuthenticationIsOpen(false)
   )}
   })
@@ -185,7 +172,7 @@ const MainNavigation = () => {
             </div> */}
             <div className={`d-flex align-items-center ${classes["mn-btn"]}`}>
               {/* <MenuButton icon={<SearchTwoToneIcon />} /> */}
-              <MenuButton icon={<PersonIcon />} onClick={handleClickLoginSucces} />
+              <MenuButton icon={<PersonIcon />} onClick={() => handleClickLoginSucces()} />
               <NavLink
                 to="/wish-list"
                 className={(props) =>

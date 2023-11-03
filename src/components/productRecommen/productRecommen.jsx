@@ -77,7 +77,6 @@ const ProductRecommen = () => {
   const [currentCardSetIndex, setCurrentCardSetIndex] = useState(0);
   const [activeCardIds, setActiveCardIds] = useState([]);
   const [value, setValue] = useState(0);
-  const {auth,setAuth} = useContext(AuthContext);
   const navigate = useNavigate()
   // const [items,setItems] = useContext(AuthItems)
 

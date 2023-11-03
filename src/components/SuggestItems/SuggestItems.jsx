@@ -9,18 +9,13 @@ import { useNavigate } from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import ReactPaginate from "react-paginate";
-import AuthContext from "../../apiRequest/Authprovider";
 
 const SuggestItems = () =>{
     const [listItems,setListItems] = useState([])
-    const [types, setTypes] = useState([])
-    const [activeTypes, setActiveTypes] = useState(1)
     const [pageCount,setPageCount] = useState(0)
     const token = localStorage.getItem('token')
     const navigate = useNavigate();
     const quantity = {quantity: 1}
-    const {auth,setAuth} = useContext(AuthContext)
-    console.log(auth);
 
     useEffect(() => {
         let retString = localStorage.getItem("key")

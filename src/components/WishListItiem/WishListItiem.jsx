@@ -18,14 +18,10 @@ const WishListItiem = () => {
     const [wishLists,setWishLists] = useState([])
     const [value, setValue] = useState(1);
     const navigate = useNavigate();
-  const getData = async() => {
-    const res = await api.get("/wishlist",{
-      headers:{
-        access_token: token
-      }
-    })
+    const getData = async() => {
+    const res = await api.get("/wishlist")
     return res
-  }
+    }
   
   console.log(wishLists.length)
   const handleAddToCart = async (id_item) => {
@@ -102,7 +98,8 @@ const WishListItiem = () => {
     useEffect(() => {
     
         getData().then((res) => {
-          setWishLists(res.data)
+          console.log(res);
+          setWishLists(res.data.data)
           
         })
         getData().catch((err) => {

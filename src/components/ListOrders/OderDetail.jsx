@@ -131,7 +131,7 @@ const OrderDetail = () => {
                             <div className={classes["info__order-title"]}>Thông tin thanh toán</div>
                             <div className={classes["info__user"]}>
                                 <div className={classes["info__user-item"]}>
-                                    <h1>Tên người dùng :</h1>
+                                    <h1>Tên người dùng: </h1>
                                     <p> {infoOder.fullName} </p>
                                 </div>
                                 {/* <div className={classes["info__user-item"]}>
@@ -139,7 +139,7 @@ const OrderDetail = () => {
                                     <p> {infoOder.phone} </p>
                                 </div> */}
                                 <div className={classes["info__user-item"]}>
-                                    <h1>Phương thức thanh toán:</h1>
+                                    <h1>Phương thức thanh toán: </h1>
                                     <p> {infoOder.name_payment} </p>
                                 </div>
                                 {/* <div className={classes["info__user-item"]}>
@@ -147,23 +147,23 @@ const OrderDetail = () => {
                                     <p> {infoOder.name_shipping_partner}</p>
                                 </div> */}
                                 <div className={classes["info__user-item"]}>
-                                    <h1>Ghi chú :</h1>
+                                    <h1>Ghi chú: </h1>
                                     <p> {infoOder.description} </p>
                                 </div>
                                 <div className={classes["info__user-pay"]}>
-                                    <h1>Tiền hoá đơn :</h1>
+                                    <h1>Tiền hoá đơn: </h1>
                                     <p>{infoOder.item_fee} </p>
                                 </div>
                                 <div className={classes["info__user-deliveryfee"]}>
-                                    <h1>Phí vận chuyển:</h1>
+                                    <h1>Phí vận chuyển: </h1>
                                     <p> {infoOder.delivery_fee} </p>
                                 </div>
                                 <div className={classes["info__user-deliveryfee"]}>
-                                    <h1>Tổng hoá đơn:</h1>
-                                    <p> {infoOder.total} </p>
+                                    <h1>Tổng hoá đơn: </h1>
+                                    <p>{infoOder.total} </p>
                                 </div>
                                 <div className={classes["info__user-deliveryfee"]}>
-                                    <h1>Trạng thái đơn hàng :</h1>
+                                    <h1>Trạng thái đơn hàng: </h1>
                                     <p> <Status value={infoOder.status}/> </p>
                                 </div>
                             </div>
