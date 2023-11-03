@@ -94,10 +94,10 @@ const Profile = () => {
                     progress: undefined,
                     theme: "colored",
                 });
-                // setTimeout(() => {
-                //     localStorage.clear()
-                //     navigate('/')
-                // }, 2000);
+                setTimeout(() => {
+                    localStorage.clear()
+                    navigate('/')
+                }, 2000);
             })
             .catch(err =>{
                 console.log(err)

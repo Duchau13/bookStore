@@ -7,45 +7,36 @@ import { useNavigate } from 'react-router-dom';
 //import { Fragment } from "react";
 import LabledInput from "../components/UI/Input/LabledInput"
 import Button from "../components/UI/Button/SmallButton"
+import {ToastContainer, toast} from "react-toastify"
 
 const validateLogin = (values) => {
     const errors = {};
   
     if (!values.email || values.email.trim().length === 0) {
-      errors.email = "Xin hãy nhập email !";
+      errors.email = "Xin hãy nhập email!";
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = "Email không hợp lệ !";
+      errors.email = "Email không hợp lệ!";
     }
   
     if (!values.password || values.password.trim().length === 0) {
-      errors.password = "Xin hãy nhập mật khẩu !";
+      errors.password = "Xin hãy nhập mật khẩu!";
     } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(values.password)) {
-      errors.password = "Mật khẩu không hợp lệ !";
+      errors.password = "Mật khẩu không hợp lệ!";
     }
     if (!values.name || values.name.trim().length === 0) {
-      errors.name = "Xin hãy nhập tên của bạn !";
-    } else if (!/^(?:[A-Za-z]+ )+[A-Za-z]+$/.test(values.name)) {
-      errors.name = "Tên không hợp lệ !";
+      errors.name = "Xin hãy nhập tên của bạn!";
     }
     if (!values.username || values.username.trim().length === 0) {
-        errors.username = "Xin hãy nhập username của bạn !";
-      } else if (!/^[A-Za-z]+$/.test(values.username)) {
-        errors.username = "Tên không hợp lệ !";
+        errors.username = "Xin hãy nhập username của bạn!";
     }
     if (!values.phone || values.phone.trim().length === 0) {
-        errors.phone = "Xin hãy nhập số điện thoại của bạn !";
+        errors.phone = "Xin hãy nhập số điện thoại của bạn!";
       } else if (!/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(values.phone)) {
-        errors.phone = "số điện thoại không hợp lệ !";
+        errors.phone = "Số điện thoại không hợp lệ!";
     }
     if (!values.address || values.address.trim().length === 0) {
-        errors.address = "Xin hãy nhập địa chỉ của bạn !";
-      } else if (!/[,#-\/\s\!\@\$.....]/.test(values.address)) {
-        errors.address = "địa chỉ không hợp lệ !";
+        errors.address = "Xin hãy nhập địa chỉ của bạn!";
     }
-    // if (values.checkpassword != values.password) {
-    //   errors.checkpassword = "Mật khẩu không trùng khớp !";
-    // }
-  
     return errors;
 };
 
@@ -58,13 +49,32 @@ const Register = () => {
     const handlesubmit = (values) => {
       api.post(`/account/create`,values)
       .then(function (res) {
-        console.log(res)
-        alert('Đăng Ký Thành công'); 
-        navigate("/") 
+        toast.success('Đăng ký thành công!', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+          setTimeout(() => {
+            navigate('/')
+        }, 3000);
       })
       .catch(function (res) {
-        console.log(res)
-      });
+        toast.error(`${res.response.data.message}`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+        })
     }
     const formikRegister = useFormik({
         initialValues: {
@@ -79,10 +89,8 @@ const Register = () => {
         validate: validateLogin,
         onSubmit: values => {
             handlesubmit(values)
-            console.log(values);
         }
       });
-    //console.log(username);
     return (
       
     <div>
@@ -134,21 +142,6 @@ const Register = () => {
             : null
         }
       /> 
-      {/* <LabledInput
-        name="checkpassword"
-        label="Nhập lại Mật khẩu"
-        placeholder="Nhập 8 kí tự có ít nhất 1 chữ cái viết hoa và 1 số"
-        required={true}
-        type="password"
-        //value={formikRegister.values.checkpassword}
-        //onChange={formikRegister.handleChange}
-        onBlur={formikRegister.handleBlur}
-        error={
-            formikRegister.touched.checkpassword && formikRegister.errors.checkpassword
-            ? formikRegister.errors.checkpassword
-            : null
-        }
-      />  */}
       <LabledInput
         name="name"
         label="Họ tên của bạn"
@@ -179,7 +172,7 @@ const Register = () => {
       /> 
       <LabledInput
         name="address"
-        label="địa chỉ"
+        label="Địa chỉ"
         placeholder="Nhập địa chỉ của bạn"
         required={true}
         value={formikRegister.values.address}
@@ -193,7 +186,19 @@ const Register = () => {
       /> 
       <Button type="submit">Đăng Ký</Button>
      </form> 
-     </div>        
+     </div>
+     <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />          
     </div>
     
     )

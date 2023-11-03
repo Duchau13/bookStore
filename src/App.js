@@ -16,7 +16,7 @@ import Payment from './components/Payment/Payment';
 import Discount from './components/Discount/Discount';
 import ProductRecommen from './components/productRecommen/productRecommen';
 import SuggestItems from './components/SuggestItems/SuggestItems';
-
+import Active from "./components/Active/Discount";
 function App() {
 
   return (
@@ -37,6 +37,7 @@ function App() {
           <Route path="/discount" element={<Discount/>} />
           <Route path="/quiz" element={<ProductRecommen/>} />
           <Route path="/suggest" element={<SuggestItems/>} />
+          <Route path="/active" element={<Active />} />
         </Routes>
       </Layout>
     </div>

@@ -59,13 +59,14 @@ const LoginForm = (props) => {
         console.log(res)
         navigate("/menu")
         setSuccess(true)
-        const name = res.data.data.username
+        const role = res.data.data.role
         const id_customer = res.data.data.id_user
         const email = res.data.data.email
         const phone = res.data.data.phone
         const address = res.data.data.address
         // setAuth({name,id_customer,phone,address,email})
-        localStorage.setItem("role", res.data.data.role);
+        localStorage.setItem("role", role);
+        console.log(res.data.data.role);
     }
     catch(err){
         console.log(err)

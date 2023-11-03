@@ -8,68 +8,68 @@ import { useNavigate } from "react-router-dom";
 
 
 const initialCards = [
-    { id: "1", title: "Lựa chọn 1", description: "Phần truyện thiếu niên. Tôi thích đọc những cuốn sách không quá nặng nề.", image: "https://lh5.googleusercontent.com/Gbjy63YqPkNKz7p43v2EFaLAlsSHiAlyLo5zgM64uhV0gI0Lx7TCyZXJmYHU-_sXzVOThR9SsrzolQxFDqwyPaDbgMh9zq8z9eGE7XXaqNpc4jaNYYRdpVL3Hf3B26jxcLJnXy1MeaYrX4-F7w" },
-    { id: "2", title: "Lựa chọn 2", description: "Phần truyện người lớn. Càng nóng bỏng càng tốt.", image: "https://thoidai.com.vn/stores/news_dataimages/thuy.dang/052019/29/00/in_article/5711_poster.medium.jpg" },
-    { id: "3", title: "Lựa chọn 3", description: "Phần trưng bày hàng tháng. Tôi thích xem những gì người đọc khác giới thiệu", image: "https://songhantourist.com/upload/articles-images/images/Kdokawa_from%20Kadokawa%20Culture%20Museum.jpeg" },
-    { id: "4", title: "Lựa chọn 4", description: "Phần truyện hư cấu. Mục tiêu chính là quên đi thực tế.", image: "https://c.wallhere.com/photos/15/95/Batman-95584.jpg!d" },
-    { id: "5", title: "Lựa chọn 5", description: "Phần truyện phiêu lưu. Tôi thích những cuốn sách mang tôi đến những nơi mới mẻ.", image: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg" },
-    { id: "6", title: "Lựa chọn 6", description: "Phần truyện khoa học viễn tưởng. Tôi thích những cuốn sách khám phá những khả năng của công nghệ và con người.", image: "https://png.pngtree.com/background/20230319/original/pngtree-sci-fi-world-cityscape-background-picture-image_2151048.jpg" },
+    { id: "1", question:"1.Bạn thường duyệt phần nào đầu tiên trong nhà sách hoặc thư viện?", title: "Phần truyện thiếu niên.", description: " Tôi thích đọc những cuốn sách không quá nặng nề.", image: "https://lh5.googleusercontent.com/Gbjy63YqPkNKz7p43v2EFaLAlsSHiAlyLo5zgM64uhV0gI0Lx7TCyZXJmYHU-_sXzVOThR9SsrzolQxFDqwyPaDbgMh9zq8z9eGE7XXaqNpc4jaNYYRdpVL3Hf3B26jxcLJnXy1MeaYrX4-F7w" },
+    { id: "2", title: "Phần truyện người lớn.", description: " Càng nóng bỏng càng tốt.", image: "https://thoidai.com.vn/stores/news_dataimages/thuy.dang/052019/29/00/in_article/5711_poster.medium.jpg" },
+    { id: "3", title: "Phần trưng bày hàng tháng.", description: "Tôi thích xem những gì người đọc khác giới thiệu", image: "https://songhantourist.com/upload/articles-images/images/Kdokawa_from%20Kadokawa%20Culture%20Museum.jpeg" },
+    { id: "4", title: "Phần truyện hư cấu.", description: "Mục tiêu chính là quên đi thực tế.", image: "https://c.wallhere.com/photos/15/95/Batman-95584.jpg!d" },
+    { id: "5", title: "Phần truyện phiêu lưu", description: "Tôi thích những cuốn sách mang tôi đến những nơi mới mẻ.", image: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg" },
+    { id: "6", title: "Phần truyện khoa học viễn tưởng. ", description: "Tôi thích những cuốn sách khám phá những khả năng của công nghệ và con người.", image: "https://png.pngtree.com/background/20230319/original/pngtree-sci-fi-world-cityscape-background-picture-image_2151048.jpg" },
 ];
 const initialCards2 = [
-    { id: "1", title: "Lựa chọn 1", description: "Một quán cà phê, ưu tiên một chỗ ngồi gần cửa sổ.", image: "https://statics.vinpearl.com/cafe-sach-ha-noi-1_1682237832.jpg" },
-    { id: "2", title: "Lựa chọn 2", description: "Giường của tôi. Không có gì bằng việc ôm một cuốn sách hay.", image: "https://erado.vn/img/giuongbangiao3.jpg" },
-    { id: "3", title: "Lựa chọn 3", description: "Trên một cái võng ngoài trời. Đọc sách dưới ánh nắng mặt trời thật kỳ diệu", image: "https://img.ltwebstatic.com/images3_spmp/2023/06/14/168672449587f012494e52cbe4384d58bd9b14c7b3_thumbnail_720x.webp" },
-    { id: "4", title: "Lựa chọn 4", description: "Trên ghế sofa với một chiếc chăn và nhạc yêu thích của tôi phát trong nền.", image: "https://noithatxinh.vn/Images/Upload/images/thu-gian-voi-ghe-sofa-nam-doc-sach-noi-that-xinh-3.jpg" },
-    { id: "5", title: "Lựa chọn 5", description: "Trong một căn phòng yên tĩnh với ánh sáng dịu nhẹ. Tôi muốn tập trung vào nội dung của sách.", image: "https://noithatmanhhe.vn/media/27634/toi-uu-anh-sang-tu-nhien-cho-phong-doc-sach.jpg" },
-    { id: "6", title: "Lựa chọn 6", description: "Trên một chiếc ghế đọc sách êm ái với một ly rượu hoặc sô-cô-la nóng. Tôi muốn tận hưởng không khí sang trọng và ấm cúng.", image: "https://sieuthinoithatnhatrang.com/upload/images/IMG_9701.jpg" },
+    { id: "1",question:"2.Bạn có một ngày riêng cho mình. Địa điểm đọc sách lý tưởng của bạn là đâu?" ,title: "Một quán cà phê", description: " ưu tiên một chỗ ngồi gần cửa sổ.", image: "https://statics.vinpearl.com/cafe-sach-ha-noi-1_1682237832.jpg" },
+    { id: "2", title: "Giường của tôi.", description: " Không có gì bằng việc ôm một cuốn sách hay.", image: "https://erado.vn/img/giuongbangiao3.jpg" },
+    { id: "3", title: "Trên một cái võng ngoài trời.", description: " Đọc sách dưới ánh nắng mặt trời thật kỳ diệu", image: "https://img.ltwebstatic.com/images3_spmp/2023/06/14/168672449587f012494e52cbe4384d58bd9b14c7b3_thumbnail_720x.webp" },
+    { id: "4", title: "Trên ghế sofa", description: " với một chiếc chăn và nhạc yêu thích của tôi phát trong nền.", image: "https://noithatxinh.vn/Images/Upload/images/thu-gian-voi-ghe-sofa-nam-doc-sach-noi-that-xinh-3.jpg" },
+    { id: "5", title: "Trong một căn phòng", description: " yên tĩnh với ánh sáng dịu nhẹ. Tôi muốn tập trung vào nội dung của sách.", image: "https://noithatmanhhe.vn/media/27634/toi-uu-anh-sang-tu-nhien-cho-phong-doc-sach.jpg" },
+    { id: "6", title: "Trên một chiếc ghế đọc sách", description: "Trên một chiếc ghế đọc sách êm ái với một ly rượu hoặc sô-cô-la nóng. Tôi muốn tận hưởng không khí sang trọng và ấm cúng.", image: "https://sieuthinoithatnhatrang.com/upload/images/IMG_9701.jpg" },
 ];
 const initialCards3 = [
-    { id: "1", title: "Lựa chọn 1", description: "Ấm áp và thoải mái, như một cái ôm lớn..", image: "https://lh5.googleusercontent.com/Gbjy63YqPkNKz7p43v2EFaLAlsSHiAlyLo5zgM64uhV0gI0Lx7TCyZXJmYHU-_sXzVOThR9SsrzolQxFDqwyPaDbgMh9zq8z9eGE7XXaqNpc4jaNYYRdpVL3Hf3B26jxcLJnXy1MeaYrX4-F7w" },
-    { id: "2", title: "Lựa chọn 2", description: "Căng thẳng, như thể tôi đang bị theo dõi..", image: "https://thoidai.com.vn/stores/news_dataimages/thuy.dang/052019/29/00/in_article/5711_poster.medium.jpg" },
-    { id: "3", title: "Lựa chọn 3", description: "Hồi hộp, như thể tôi đã bước vào một thế giới mới và kỳ ảo.", image: "https://songhantourist.com/upload/articles-images/images/Kdokawa_from%20Kadokawa%20Culture%20Museum.jpeg" },
-    { id: "4", title: "Lựa chọn 4", description: "Bình yên và thanh thản, như thể tôi đang ở một spa.", image: "https://c.wallhere.com/photos/15/95/Batman-95584.jpg!d" },
-    { id: "5", title: "Lựa chọn 5", description: "Xúc động và cảm thông, như thể tôi đang sống cùng nhân vật trong sách..", image: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg" },
-    { id: "6", title: "Lựa chọn 6", description: "Vui vẻ và hài hước, như thể tôi đang xem một bộ phim hài kịch.", image: "https://sieuthinoithatnhatrang.com/upload/images/IMG_9701.jpg" },
+    { id: "1",question:"3.Theo bạn, một cuốn sách nên làm bạn cảm thấy như thế nào?", description: "", title: "Ấm áp và thoải mái, như một cái ôm lớn..", image: "https://lh5.googleusercontent.com/Gbjy63YqPkNKz7p43v2EFaLAlsSHiAlyLo5zgM64uhV0gI0Lx7TCyZXJmYHU-_sXzVOThR9SsrzolQxFDqwyPaDbgMh9zq8z9eGE7XXaqNpc4jaNYYRdpVL3Hf3B26jxcLJnXy1MeaYrX4-F7w" },
+    { id: "2", description: "", title: "Căng thẳng, như thể tôi đang bị theo dõi..", image: "https://thoidai.com.vn/stores/news_dataimages/thuy.dang/052019/29/00/in_article/5711_poster.medium.jpg" },
+    { id: "3", description: "", title: "Hồi hộp, như thể tôi đã bước vào một thế giới mới và kỳ ảo.", image: "https://songhantourist.com/upload/articles-images/images/Kdokawa_from%20Kadokawa%20Culture%20Museum.jpeg" },
+    { id: "4", description: "", title: "Bình yên và thanh thản, như thể tôi đang ở một spa.", image: "https://c.wallhere.com/photos/15/95/Batman-95584.jpg!d" },
+    { id: "5", description: "", title: "Xúc động và cảm thông, như thể tôi đang sống cùng nhân vật trong sách..", image: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg" },
+    { id: "6", description: "", title: "Vui vẻ và hài hước, như thể tôi đang xem một bộ phim hài kịch.", image: "https://sieuthinoithatnhatrang.com/upload/images/IMG_9701.jpg" },
 ];
 const initialCards4 = [
-    { id: "1", title: "Lựa chọn 1", description: "Trà. Nó làm ấm trái tim tôi, giống như một cuốn sách.", image: "https://static.wixstatic.com/media/8cb37b_1c0229e4f35a4c03a71dfdacad6cd20f~mv2.png/v1/fill/w_1000,h_667,al_c,q_90,usm_0.66_1.00_0.01/8cb37b_1c0229e4f35a4c03a71dfdacad6cd20f~mv2.png" },
-    { id: "2", title: "Lựa chọn 2", description: "Nước. Giữ cho cơ thể được cân bằng là quan trọng như việc đọc sách.", image: "https://bizweb.dktcdn.net/100/333/628/files/nuoc-sach-giau-khoang.jpg?v=1601260428010" },
-    { id: "3", title: "Lựa chọn 3", description: "Không gì cả. Tôi không uống gì khi đọc sách.", image: "https://camnangchiase.com/wp-content/uploads/2019/03/doc-mot-cuon-sach-hay-cung-nhu-tro-chuyen-voi-mot-nguoi-ban-thong-minh-1.jpg" },
-    { id: "4", title: "Lựa chọn 4", description: "Cà phê. Không có gì ngon hơn khi giữ cho tinh thần tỉnh táo.", image: "https://cdnphoto.dantri.com.vn/IHZKLBoQkaARsY6z5krd25u90Kk=/thumb_w/960/2021/03/05/ca-phe-va-sachdocx-1614934277784.jpeg" },
-    { id: "5", title: "Lựa chọn 5", description: "Sinh tố hoặc nước ép trái cây. Tôi thích những thức uống tươi mát và bổ dưỡng.", image: "https://cdn.tgdd.vn/Files/2020/04/17/1249876/vua-dep-da-lai-con-giam-can-chi-voi-moi-ngay-1-ly-sinh-to-dua-chuot-va-yen-mach-202004172304225524.jpg" },
-    { id: "6", title: "Lựa chọn 6", description: "Rượu hoặc bia. Tôi thích những thức uống có tính chất xã giao và giải tỏa căng thẳng.", image: "https://images2.thanhnien.vn/uploaded/minhnguyet/2016_03_16/docsach_TCQJ.jpg?width=600" },
+    { id: "1",question:"4.Thức uống bạn thường chọn khi đọc sách là gì?", title: "Trà.", description: " Nó làm ấm trái tim tôi, giống như một cuốn sách.", image: "https://static.wixstatic.com/media/8cb37b_1c0229e4f35a4c03a71dfdacad6cd20f~mv2.png/v1/fill/w_1000,h_667,al_c,q_90,usm_0.66_1.00_0.01/8cb37b_1c0229e4f35a4c03a71dfdacad6cd20f~mv2.png" },
+    { id: "2", title: "Nước.", description: " Giữ cho cơ thể được cân bằng là quan trọng như việc đọc sách.", image: "https://bizweb.dktcdn.net/100/333/628/files/nuoc-sach-giau-khoang.jpg?v=1601260428010" },
+    { id: "3", title: "Không gì cả.", description: "Tôi không uống gì khi đọc sách.", image: "https://camnangchiase.com/wp-content/uploads/2019/03/doc-mot-cuon-sach-hay-cung-nhu-tro-chuyen-voi-mot-nguoi-ban-thong-minh-1.jpg" },
+    { id: "4", title: "Cà phê. ", description: " Không có gì ngon hơn khi giữ cho tinh thần tỉnh táo.", image: "https://cdnphoto.dantri.com.vn/IHZKLBoQkaARsY6z5krd25u90Kk=/thumb_w/960/2021/03/05/ca-phe-va-sachdocx-1614934277784.jpeg" },
+    { id: "5", title: "Sinh tố hoặc nước ép trái cây.", description: " Tôi thích những thức uống tươi mát và bổ dưỡng.", image: "https://cdn.tgdd.vn/Files/2020/04/17/1249876/vua-dep-da-lai-con-giam-can-chi-voi-moi-ngay-1-ly-sinh-to-dua-chuot-va-yen-mach-202004172304225524.jpg" },
+    { id: "6", title: "Rượu hoặc bia. ", description: "Tôi thích những thức uống có tính chất xã giao và giải tỏa căng thẳng.", image: "https://images2.thanhnien.vn/uploaded/minhnguyet/2016_03_16/docsach_TCQJ.jpg?width=600" },
 ];
 const initialCards5 = [
-    { id: "1", title: "Lựa chọn 1", description: "Sách đơn lẻ. Không ràng buộc. Không hồi kết treo. Hoàn hảo.", image: "https://lh5.googleusercontent.com/Gbjy63YqPkNKz7p43v2EFaLAlsSHiAlyLo5zgM64uhV0gI0Lx7TCyZXJmYHU-_sXzVOThR9SsrzolQxFDqwyPaDbgMh9zq8z9eGE7XXaqNpc4jaNYYRdpVL3Hf3B26jxcLJnXy1MeaYrX4-F7w" },
-    { id: "2", title: "Lựa chọn 2", description: "Cả hai. Tôi sẽ đọc bất cứ thứ gì nếu tôi thích thể loại hoặc tác giả..", image: "https://thoidai.com.vn/stores/news_dataimages/thuy.dang/052019/29/00/in_article/5711_poster.medium.jpg" },
-    { id: "3", title: "Lựa chọn 3", description: "Sách theo loạt cũng được, nhưng tôi sẽ không đọc những cuốn sách có nhiều hơn 3 quyển.", image: "https://songhantourist.com/upload/articles-images/images/Kdokawa_from%20Kadokawa%20Culture%20Museum.jpeg" },
-    { id: "4", title: "Lựa chọn 4", description: "Sách theo loạt. Tôi luôn biết nên đọc gì tiếp theo!", image: "https://c.wallhere.com/photos/15/95/Batman-95584.jpg!d" },
-    { id: "5", title: "Lựa chọn 5", description: "Sách đơn lẻ kết hợp với nhau. Tôi thích những cuốn sách có cùng thế giới hoặc nhân vật nhưng không phụ thuộc vào nhau.", image: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg" },
-    { id: "6", title: "Lựa chọn 6", description: "Sách theo loạt dài. Tôi thích những cuốn sách có nhiều chi tiết và phát triển sâu sắc..", image: "https://png.pngtree.com/background/20230319/original/pngtree-sci-fi-world-cityscape-background-picture-image_2151048.jpg" },
+    { id: "1",question:"5.Bạn thích đọc sách đơn lẻ hay sách theo loạt?", title: "Sách đơn lẻ.", description: " Không ràng buộc. Không hồi kết treo. Hoàn hảo.", image: "https://lh5.googleusercontent.com/Gbjy63YqPkNKz7p43v2EFaLAlsSHiAlyLo5zgM64uhV0gI0Lx7TCyZXJmYHU-_sXzVOThR9SsrzolQxFDqwyPaDbgMh9zq8z9eGE7XXaqNpc4jaNYYRdpVL3Hf3B26jxcLJnXy1MeaYrX4-F7w" },
+    { id: "2", title: "Cả hai. ", description: " Tôi sẽ đọc bất cứ thứ gì nếu tôi thích thể loại hoặc tác giả..", image: "https://thoidai.com.vn/stores/news_dataimages/thuy.dang/052019/29/00/in_article/5711_poster.medium.jpg" },
+    { id: "3", title: "Sách theo loạt cũng được,", description: " nhưng tôi sẽ không đọc những cuốn sách có nhiều hơn 3 quyển.", image: "https://songhantourist.com/upload/articles-images/images/Kdokawa_from%20Kadokawa%20Culture%20Museum.jpeg" },
+    { id: "4", title: "Sách theo loạt.", description: "Tôi luôn biết nên đọc gì tiếp theo!", image: "https://c.wallhere.com/photos/15/95/Batman-95584.jpg!d" },
+    { id: "5", title: "Sách đơn lẻ kết hợp với nhau.", description: " Tôi thích những cuốn sách có cùng thế giới hoặc nhân vật nhưng không phụ thuộc vào nhau.", image: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg" },
+    { id: "6", title: "Sách theo loạt dài. ", description: "Tôi thích những cuốn sách có nhiều chi tiết và phát triển sâu sắc..", image: "https://png.pngtree.com/background/20230319/original/pngtree-sci-fi-world-cityscape-background-picture-image_2151048.jpg" },
 ];
 const initialCards6 = [
-    { id: "1", title: "Lựa chọn 1", description: "The Chosen One. Hãy cho tôi tất cả các lời tiên tri và áp lực cứu thế giới.", image: "https://cdn0.fahasa.com/media/catalog/product/9/7/9781529330267.jpg" },
-    { id: "2", title: "Lựa chọn 2", description: "Second Chance. Mọi nhân vật đều có tính cách mờ ám.", image: "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_40424_thanh_ly_1.jpg" },
-    { id: "3", title: "Lựa chọn 3", description: "Enemies to Lovers. Không gì bằng việc anh hùng yêu phản diện.", image: "https://salt.tikicdn.com/cache/280x280/ts/product/ee/c5/2f/275a60a6ad7b71b95e5dc8f4ddcc1efb.jpg" },
-    { id: "4", title: "Lựa chọn 4", description: "One Bed. Ồ, những trò nghịch ngợm xảy ra khi có 2 người và 1 giường.", image: "https://cdn-amz.woka.io/images/I/71e1bko1zRL.jpg" },
-    { id: "5", title: "Lựa chọn 5", description: "Friends To Lovers Tôi thích những câu chuyện về tình yêu từ tình bạn..", image: "https://m.media-amazon.com/images/I/41p+Ht3wVCL.jpg" },
-    { id: "6", title: "Lựa chọn 6", description: "Fantasy Becoming Reality Tôi thích những câu chuyện về những điều kỳ lạ xâm .", image: "https://m.media-amazon.com/images/I/31T9eCJUI6L._AC_UF894,1000_QL80_.jpg" },
+    { id: "1",question:"6.Trong tất cả các mẫu truyện, bạn thích cái nào nhất?", title: "The Chosen One.", description: " Hãy cho tôi tất cả các lời tiên tri và áp lực cứu thế giới.", image: "https://cdn0.fahasa.com/media/catalog/product/9/7/9781529330267.jpg" },
+    { id: "2", title: "Second Chance.", description: " Mọi nhân vật đều có tính cách mờ ám.", image: "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_40424_thanh_ly_1.jpg" },
+    { id: "3", title: "Enemies to Lovers.", description: " Không gì bằng việc anh hùng yêu phản diện.", image: "https://salt.tikicdn.com/cache/280x280/ts/product/ee/c5/2f/275a60a6ad7b71b95e5dc8f4ddcc1efb.jpg" },
+    { id: "4", title: "One Bed.", description: " Ồ, những trò nghịch ngợm xảy ra khi có 2 người và 1 giường.", image: "https://cdn-amz.woka.io/images/I/71e1bko1zRL.jpg" },
+    { id: "5", title: "Friends To Lovers", description: " Tôi thích những câu chuyện về tình yêu từ tình bạn..", image: "https://m.media-amazon.com/images/I/41p+Ht3wVCL.jpg" },
+    { id: "6", title: "Fantasy Becoming Reality", description: " Tôi thích những câu chuyện về những điều kỳ lạ xâm .", image: "https://m.media-amazon.com/images/I/31T9eCJUI6L._AC_UF894,1000_QL80_.jpg" },
 ];
 const initialCards7 = [
-    { id: "1", title: "Lựa chọn 1", description: "WandaVision hoặc Once Upon a Time", image: "https://lh5.googleusercontent.com/Gbjy63YqPkNKz7p43v2EFaLAlsSHiAlyLo5zgM64uhV0gI0Lx7TCyZXJmYHU-_sXzVOThR9SsrzolQxFDqwyPaDbgMh9zq8z9eGE7XXaqNpc4jaNYYRdpVL3Hf3B26jxcLJnXy1MeaYrX4-F7w" },
-    { id: "2", title: "Lựa chọn 2", description: "Lost hoặc Stranger Things", image: "https://thoidai.com.vn/stores/news_dataimages/thuy.dang/052019/29/00/in_article/5711_poster.medium.jpg" },
-    { id: "3", title: "Lựa chọn 3", description: "American Horror Story hoặc The Walking Dead", image: "https://songhantourist.com/upload/articles-images/images/Kdokawa_from%20Kadokawa%20Culture%20Museum.jpeg" },
-    { id: "4", title: "Lựa chọn 4", description: "Friends hoặc Schitt’s Creek.", image: "https://c.wallhere.com/photos/15/95/Batman-95584.jpg!d" },
-    { id: "5", title: "Lựa chọn 5", description: "The Crown hoặc The Queen’s Gambit.", image: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg" },
-    { id: "6", title: "Lựa chọn 6", description: "The Mandalorian hoặc The Witcher", image: "https://images2.thanhnien.vn/uploaded/minhnguyet/2016_03_16/docsach_TCQJ.jpg?width=600" },
+    { id: "1",question:"7.Cuối tuần đã đến và bạn không thể chờ đợi để thư giãn. Bạn sẽ xem chương trình truyền hình nào?", description: "", title: "WandaVision hoặc Once Upon a Time", image: "https://lh5.googleusercontent.com/Gbjy63YqPkNKz7p43v2EFaLAlsSHiAlyLo5zgM64uhV0gI0Lx7TCyZXJmYHU-_sXzVOThR9SsrzolQxFDqwyPaDbgMh9zq8z9eGE7XXaqNpc4jaNYYRdpVL3Hf3B26jxcLJnXy1MeaYrX4-F7w" },
+    { id: "2", description: "", title: "Lost hoặc Stranger Things", image: "https://thoidai.com.vn/stores/news_dataimages/thuy.dang/052019/29/00/in_article/5711_poster.medium.jpg" },
+    { id: "3", description: "", title: "American Horror Story hoặc The Walking Dead", image: "https://songhantourist.com/upload/articles-images/images/Kdokawa_from%20Kadokawa%20Culture%20Museum.jpeg" },
+    { id: "4", description: "", title: "Friends hoặc Schitt’s Creek.", image: "https://c.wallhere.com/photos/15/95/Batman-95584.jpg!d" },
+    { id: "5", description: "", title: "The Crown hoặc The Queen’s Gambit.", image: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg" },
+    { id: "6", description: "", title: "The Mandalorian hoặc The Witcher", image: "https://images2.thanhnien.vn/uploaded/minhnguyet/2016_03_16/docsach_TCQJ.jpg?width=600" },
 ];
 const initialCards8 = [
-    { id: "1", title: "Lựa chọn 1", description: "Một bí ẩn. Tôi thích làm thám tử.", image: "https://sohanews.sohacdn.com/zoom/700_438/2019/7/23/death-15638468372881087338521-crop-1563846855105843971154.jpg" },
-    { id: "2", title: "Lựa chọn 2", description: "Một tốc độ nhanh. Tôi muốn bị cuốn hút từ khi bắt đầu.", image: "https://vcdn-vnexpress.vnecdn.net/2022/10/14/-5293-1665717599.jpg" },
-    { id: "3", title: "Lựa chọn 3", description: "Một tam giác tình yêu. Hãy cho tôi những con tàu hoặc cho tôi chết!", image: "https://www.blog.ezcareme.com/wp-content/uploads/2023/05/KHI-DIEN-THOAI-TRO-THANH-OXY-2.png" },
-    { id: "4", title: "Lựa chọn 4", description: "Một bước ngoặt. Mọi thứ sẽ thú vị hơn khi không dự đoán được..", image: "https://media.istockphoto.com/id/1156894024/vi/anh/kh%C3%A1i-ni%E1%BB%87m-v%E1%BB%81-m%E1%BB%99t-b%C6%B0%E1%BB%9Bc-ngo%E1%BA%B7t-trong-cu%E1%BB%99c-s%E1%BB%91ng-b%C3%A0n-tay-bi%E1%BA%BFn-m%E1%BB%99t-kh%E1%BB%91i-l%E1%BA%ADp-ph%C6%B0%C6%A1ng-v%C3%A0-thay-%C4%91%E1%BB%95i-t%E1%BB%AB.jpg?s=1024x1024&w=is&k=20&c=crXjeHdv3qWAofeRLJb4S5h4jOn5zK87fL_RN09RfRc=" },
-    { id: "5", title: "Lựa chọn 5", description: "Một thông điệp. Tôi muốn học được điều gì đó từ sách..", image: "https://marketingai.mediacdn.vn/zoom/700_438/wp-content/uploads/2017/04/thong-diep-truyen-thong.jpg" },
-    { id: "6", title: "Lựa chọn 6", description: "Một kết thúc hài lòng. Tôi muốn cảm thấy hạnh phúc khi kết thúc sách.", image: "https://xabuon.com/uploads1/news/logopng1.png" },
+    { id: "1",question:"8.Một cuốn sách phải có điều gì?", title: "Một bí ẩn.", description: " Tôi thích làm thám tử.", image: "https://sohanews.sohacdn.com/zoom/700_438/2019/7/23/death-15638468372881087338521-crop-1563846855105843971154.jpg" },
+    { id: "2", title: "Một tốc độ nhanh", description: "Tôi muốn bị cuốn hút từ khi bắt đầu.", image: "https://vcdn-vnexpress.vnecdn.net/2022/10/14/-5293-1665717599.jpg" },
+    { id: "3", title: "Một tam giác tình yêu", description: " Hãy cho tôi những con tàu hoặc cho tôi chết!", image: "https://www.blog.ezcareme.com/wp-content/uploads/2023/05/KHI-DIEN-THOAI-TRO-THANH-OXY-2.png" },
+    { id: "4", title: "Một bước ngoặt.", description: " Mọi thứ sẽ thú vị hơn khi không dự đoán được..", image: "https://media.istockphoto.com/id/1156894024/vi/anh/kh%C3%A1i-ni%E1%BB%87m-v%E1%BB%81-m%E1%BB%99t-b%C6%B0%E1%BB%9Bc-ngo%E1%BA%B7t-trong-cu%E1%BB%99c-s%E1%BB%91ng-b%C3%A0n-tay-bi%E1%BA%BFn-m%E1%BB%99t-kh%E1%BB%91i-l%E1%BA%ADp-ph%C6%B0%C6%A1ng-v%C3%A0-thay-%C4%91%E1%BB%95i-t%E1%BB%AB.jpg?s=1024x1024&w=is&k=20&c=crXjeHdv3qWAofeRLJb4S5h4jOn5zK87fL_RN09RfRc=" },
+    { id: "5", title: "Một thông điệp.", description: " Tôi muốn học được điều gì đó từ sách..", image: "https://marketingai.mediacdn.vn/zoom/700_438/wp-content/uploads/2017/04/thong-diep-truyen-thong.jpg" },
+    { id: "6", title: "Một kết thúc hài lòng.", description: " Tôi muốn cảm thấy hạnh phúc khi kết thúc sách.", image: "https://xabuon.com/uploads1/news/logopng1.png" },
 ];
 const allCardSets = [initialCards, initialCards2, initialCards3, initialCards4, initialCards5,initialCards6,initialCards7,initialCards8];
 
@@ -160,7 +160,7 @@ const checkout = () => {
 };
   return (
     <div className={classes["container"]}>
-      <h1>Chọn câu trả lời thích hợp với bạn</h1>
+      <h1>{allCardSets[currentCardSetIndex][0].question}</h1>
       <div className={classes['card-container']}>
         {allCardSets[currentCardSetIndex].map((card) => (
           <div

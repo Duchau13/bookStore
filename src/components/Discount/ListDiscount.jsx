@@ -9,12 +9,12 @@ const ListDiscount = () => {
   const [discountList, setDiscount] = useState([]);
 
   const getDiscountList = async () => {
-    const res = await api.get("/discounts", {});
+    const res = await api.get("/discount", {});
     return res;
   };
   useEffect(() => {
     getDiscountList().then((res) => {
-      setDiscount(res.data.discountList);
+      setDiscount(res.data.data);
       console.log(res);
     });
     getDiscountList().catch((err) => {
@@ -27,7 +27,7 @@ const ListDiscount = () => {
       <div className={classes["main-content"]}>
         <img
           className="image"
-          src="https://phuclong.com.vn/uploads/post/f08dcfd34af11f-traulanh120k_640x512.png"
+          src="https://cdnimg.vietnamplus.vn/t1200/Uploaded/fsmya/2022_11_11/vnpkm.png"
           alt="Avatar"
           style={{ width: "100%" }}
         />
@@ -36,9 +36,12 @@ const ListDiscount = () => {
             {discountList.map((item) => {
               return (
                 <div className="col-md-4">
-                  <div className="card" style={{ width: "25rem",marginBottom:"100px" }}>
+                  <div
+                    className="card"
+                    style={{ width: "25rem", marginBottom: "100px" }}
+                  >
                     <img
-                      src="https://phuclong.com.vn/uploads/post/69ce5a2fa7a3ee-dgtkhaitruongplthangloi_640x512.jpg"
+                      src="https://cdnimg.vietnamplus.vn/t1200/Uploaded/fsmya/2022_11_11/vnpkm.png"
                       className="card-img-top"
                       alt="..."
                     />
@@ -59,7 +62,9 @@ const ListDiscount = () => {
                         Số lượng còn lại: {item.quantity}
                       </h6>
                       <div className={classes["des_discount"]}>
-                        <p className="card-text">Mô tả: Giảm {item.discount_percent}% cho tổng hoá đơn</p>
+                        <p className="card-text">
+                          Mô tả: Giảm {item.discount_percent}% cho tổng hoá đơn
+                        </p>
                       </div>
                     </div>
                   </div>

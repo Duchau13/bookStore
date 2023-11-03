@@ -130,7 +130,6 @@ const WishListItiem = () => {
                                     <td className={classes['column-des']}>
                                         <div><p className={classes['name-itiem']} onClick={() => navigate(`/product-detail/${wishList.id_item}`)} >{wishList.name}</p></div>
                                         <div>Giá: {wishList.price}</div>
-                                        <div>20-11-2021</div>
                                     </td>
                                     <td className='align-middle'>
                                         <AddButton onClick={() => handleAddToCart(wishList.id_item)}>Add To Card</AddButton>

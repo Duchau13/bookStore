@@ -27,8 +27,12 @@ const MainNavigation = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
   const [listitems,setListitems] = useState([])
   const [click,setClick] = useState(1)
-
-
+  const role = localStorage.getItem('role')
+  if(role!=""){
+    console.log(true);
+  }else{
+    console.log(false);
+  }
 
   const getData = async() => {
     const res = await api.get("/cart",{
@@ -39,7 +43,9 @@ const MainNavigation = () => {
     return res
   }
   useEffect(() => {
-  
+    if(role!=""){
+      setAuthenticationIsOpen(false)
+    }
     getData().then((res) => {
       setListitems(res.data.itemList)
     })
@@ -94,7 +100,7 @@ const MainNavigation = () => {
   };
 
   useEffect(() => {
-    if(localStorage.getItem('token')){ return(
+    if(localStorage.getItem('role')){ return(
       setAuthenticationIsOpen(false)
   )}
   })

@@ -6,8 +6,8 @@ import classes from "./HeadthyAd.module.css";
 
 //images
 import vegetable from "../../assets/images/slider/slider_bg_3.jpg";
-import icon1 from "../../assets/icons/healthy_1.png";
-import icon2 from "../../assets/icons/healthy_2.png";
+import icon1 from "../../assets/icons/1.png";
+import icon2 from "../../assets/icons/2.png";
 import greenChilli from "../../assets/images/parallax_decors/h_healthy_green_chilli.png";
 import redChilli from "../../assets/images/parallax_decors/h_healthy_red_chilli.png";
 import yellowChilli from "../../assets/images/parallax_decors/h_healthy_yellow_chilli.png";
@@ -39,7 +39,7 @@ const HealthyAd = () => {
                   <img src={icon1} alt="icon1" />
                 </div>
                 <div className={classes["ad-item_desc"]}>
-                  <h5>Menu đa dạng</h5>
+                  <h5>Sách đa dạng</h5>
                   <p>Tha hồ cho bạn lựa chọn</p>
                 </div>
               </li>
@@ -49,15 +49,15 @@ const HealthyAd = () => {
                 </div>
                 <div className={classes["ad-item_desc"]}>
                   <h5>Sản phẩm chất lượng</h5>
-                  <p>Được chế biến theo nguyên liệu tự nhiên</p>
+                  <p>Được nhập từ những nhà sách chất lượng</p>
                 </div>
               </li>
             </ul>
             <Link to="/menu" className={classes["shop-btn"]}>
-              <Button>Ghé menu</Button>
+              <Button>Ghé mua sách</Button>
             </Link>
           </Col>
-          <Col lg={8} style={{position: "relative"}}>
+          <Col lg={8} style={{ position: "relative" }}>
             <img
               src="https://bizweb.dktcdn.net/100/364/248/files/deckle.jpg?v=1581709110642"
               alt="tô rau củ"
